@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Plus, Check } from "lucide-react";
 import { toast } from "react-toastify";
-
+import { API_URL } from "../Constant/constant";
 const InputFields = ({ imageUploaded, imageFile }) => {
   const [title, setTitle] = useState("");
   const [song, setSong] = useState(null);
@@ -34,7 +34,7 @@ const InputFields = ({ imageUploaded, imageFile }) => {
 
     setLoading(true);
     try {
-      await axios.post("https://laddooserver.onrender.com/api/songs/upload", formData, {
+      await axios.post(`${API_URL}/api/songs/upload`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
